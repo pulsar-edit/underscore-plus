@@ -146,6 +146,13 @@ describe "underscore extensions", ->
       expect(_.humanizeKeystroke(null)).toEqual null
       expect(_.humanizeKeystroke('')).toEqual ''
 
+    it "resolves cmdorctrl to cmd symbol on darwin and Ctrl on other platforms", ->
+      expect(_.humanizeKeystroke('cmdorctrl-f', 'darwin')).toEqual '⌘F'
+      expect(_.humanizeKeystroke('cmdorctrl-f', 'linux')).toEqual 'Ctrl+F'
+      expect(_.humanizeKeystroke('cmdorctrl-f', 'win32')).toEqual 'Ctrl+F'
+      expect(_.humanizeKeystroke('cmdorctrl-shift-f', 'darwin')).toEqual '⌘⇧F'
+      expect(_.humanizeKeystroke('cmdorctrl-shift-f', 'linux')).toEqual 'Ctrl+Shift+F'
+
   describe "::deepExtend(objects...)", ->
     it "copies all key/values from each object onto the target", ->
       first =
