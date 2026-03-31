@@ -89,7 +89,8 @@ const macModifierKeyMap = {
   left: '\u2190',
   right: '\u2192',
   up: '\u2191',
-  down: '\u2193'
+  down: '\u2193',
+  cmdorctrl: '\u2318'
 };
 const nonMacModifierKeyMap = {
   cmd: 'Cmd',
@@ -101,7 +102,8 @@ const nonMacModifierKeyMap = {
   left: 'Left',
   right: 'Right',
   up: 'Up',
-  down: 'Down'
+  down: 'Down',
+  cmdorctrl: 'Ctrl'
 }; // Human key combos should always explicitly state the shift key. This map is a disambiguator.
 // 'shift-version': 'no-shift-version'
 
