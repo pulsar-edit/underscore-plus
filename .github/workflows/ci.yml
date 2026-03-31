@@ -1,16 +1,24 @@
 name: CI
 
-on: [push]
+on:
+  pull_request:
+  push:
+    branches: [ 'master' ]
 
 jobs:
- Build:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 14
-    - name: Install dependencies
-      run: npm install
-    - name: Test
-      run: npm test
+  ci:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        node-version: [14, '${{ vars.NODE_VERSION }}' ]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: Test
+        run: npm test
