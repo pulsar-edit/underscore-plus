@@ -1,11 +1,11 @@
 {
-  "name": "underscore-plus",
+  "name": "@pulsar-edit/underscore-plus",
   "version": "1.7.0",
   "description": "Underscore plus additional utilities",
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/atom/underscore-plus/raw/master/LICENSE.md"
+      "url": "http://github.com/pulsar-edit/underscore-plus/raw/master/LICENSE.md"
     }
   ],
   "main": "./lib/underscore-plus.js",
@@ -20,10 +20,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/underscore-plus.git"
+    "url": "https://github.com/pulsar-edit/underscore-plus.git"
   },
   "bugs": {
-    "url": "https://github.com/atom/underscore-plus/issues"
+    "url": "https://github.com/pulsar-edit/underscore-plus/issues"
   },
   "keywords": [
     "underscore"
