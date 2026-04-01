@@ -11,7 +11,7 @@
   "main": "./src/underscore-plus.js",
   "scripts": {
     "test": "jasmine-focused --captureExceptions --coffee spec",
-    "lint": "coffeelint spec/*.coffee",
+    "lint": "coffeelint spec/*.coffee"
   },
   "repository": {
     "type": "git",
