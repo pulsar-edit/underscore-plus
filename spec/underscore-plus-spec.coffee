@@ -1,4 +1,4 @@
-_ = require '../lib/underscore-plus.js'
+_ = require '../src/underscore-plus.js'
 
 describe "underscore extensions", ->
   describe "::adviseBefore(object, methodName, advice)", ->
