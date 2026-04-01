@@ -181,9 +181,9 @@ module.exports = {
   // Returns a deep clone of the JSON object.
   deepClone(object) {
     if (isArray(object)) {
-      return object.map(value => deepClone(value));
+      return object.map(value => this.deepClone(value));
     } else if (isObject(object) && !isFunction(object)) {
-      return mapObject(object, (key, value) => [key, deepClone(value)]);
+      return this.mapObject(object, (key, value) => [key, this.deepClone(value)]);
     } else {
       return object;
     }
@@ -196,10 +196,10 @@ module.exports = {
       if (isPlainObject(result) && isPlainObject(object)) {
         const keys = Object.keys(object)
         for (let key of keys) {
-          result[key] = deepExtend(result[key], object[key]);
+          result[key] = this.deepExtend(result[key], object[key]);
         }
       } else {
-        result = deepClone(object);
+        result = this.deepClone(object);
       }
     }
     return result;
@@ -235,10 +235,10 @@ module.exports = {
   },
   humanizeEventName(eventName, eventDoc) {
     const [namespace, event]  = eventName.split(':');
-    if (event == null) { return undasherize(namespace); }
+    if (event == null) { return this.undasherize(namespace); }
 
-    const namespaceDoc = undasherize(namespace);
-    if (eventDoc == null) { eventDoc = undasherize(event); }
+    const namespaceDoc = this.undasherize(namespace);
+    if (eventDoc == null) { eventDoc = this.undasherize(event); }
 
     return `${namespaceDoc}: ${eventDoc}`;
   },
@@ -259,7 +259,7 @@ module.exports = {
       if (platform === 'darwin') {
         return key;
       } else {
-        return capitalize(key);
+        return this.capitalize(key);
       }
     }
   },
@@ -284,7 +284,7 @@ module.exports = {
         // Check for consecutive dashes such as cmd--
         let key = splitKeystroke[index];
         if ((key === '') && (splitKeystroke[index-1] === '')) { key = '-'; }
-        if (key) { keys.push(humanizeKey(key, platform)); }
+        if (key) { keys.push(this.humanizeKey(key, platform)); }
       }
 
       keys = uniq(flatten(keys));
@@ -390,11 +390,11 @@ module.exports = {
     if (!string) { return ''; }
 
     const result = string.replace(/([A-Z])|_+/g, (match, letter='') => ` ${letter}`);
-    return capitalize(result.trim());
+    return this.capitalize(result.trim());
   },
   undasherize(string) {
     if (string) {
-      return string.split('-').map(capitalize).join(' ');
+      return string.split('-').map(this.capitalize).join(' ');
     } else {
       return '';
     }
