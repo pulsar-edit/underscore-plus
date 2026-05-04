@@ -7,7 +7,7 @@ let plugins = [
 
 if (process.env.BABEL_ENV === "development") {
   plugins.push(...[
-    "@babel/plugin-transform-modules-commonjs",
+    ["@babel/plugin-transform-modules-commonjs", { loose: true }],
     "@babel/plugin-proposal-export-namespace-from",
   ]);
 }

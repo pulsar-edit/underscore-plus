@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 var _exportNames = {
   adviseBefore: true,
   camelize: true,
@@ -43,6 +41,7 @@ exports.dasherize = dasherize;
 exports.deepClone = deepClone;
 exports.deepContains = deepContains;
 exports.deepExtend = deepExtend;
+exports.default = void 0;
 exports.endsWith = endsWith;
 exports.escapeAttribute = escapeAttribute;
 exports.escapeRegExp = escapeRegExp;
@@ -65,20 +64,15 @@ exports.uncamelcase = uncamelcase;
 exports.undasherize = undasherize;
 exports.underscore = underscore;
 exports.valueForKeyPath = valueForKeyPath;
-var _underscore = require("underscore");
+var _underscore = _interopRequireWildcard(require("underscore"));
+var _ = _underscore;
 Object.keys(_underscore).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
   if (key in exports && exports[key] === _underscore[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _underscore[key];
-    }
-  });
+  exports[key] = _underscore[key];
 });
-// import * as _ from 'underscore' // if we needed all
-
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
 const macModifierKeyMap = {
   cmd: '\u2318',
   ctrl: '\u2303',
@@ -541,6 +535,37 @@ function isEqual_(a, b, aStack = [], bStack = []) {
   bStack.pop();
   return equal;
 }
-
-// TODO: Consider shorter variations of null checks:
+var _default = exports.default = {
+  ..._,
+  adviseBefore,
+  camelize,
+  capitalize,
+  compactObject,
+  dasherize,
+  deepClone,
+  deepContains,
+  deepExtend,
+  endsWith,
+  escapeAttribute,
+  escapeRegExp,
+  humanizeEventName,
+  humanizeKey,
+  humanizeKeystroke,
+  isSubset,
+  losslessInvert,
+  mapObject,
+  multiplyString,
+  pluralize,
+  remove,
+  setValueForKeyPath,
+  hasKeyPath,
+  spliceWithArray,
+  sum,
+  uncamelcase,
+  undasherize,
+  underscore,
+  valueForKeyPath,
+  isEqual,
+  isEqualForProperties
+}; // TODO: Consider shorter variations of null checks:
 // https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md#ds207-consider-shorter-variations-of-null-checks
