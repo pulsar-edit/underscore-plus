@@ -1,6 +1,6 @@
-export * from 'underscore'
+export * from 'underscore';
+import * as _ from 'underscore';
 
-// import * as _ from 'underscore' // if we needed all
 import {every, flatten, has, include, isArray, isElement, isEqual as _isEqual, isFunction, isObject, isRegExp, uniq} from "underscore";
 
 const macModifierKeyMap = {
@@ -457,6 +457,40 @@ function isEqual_(a, b, aStack=[], bStack=[]) {
   bStack.pop();
   return equal;
 }
+
+export default {
+  ..._,
+  adviseBefore,
+  camelize,
+  capitalize,
+  compactObject,
+  dasherize,
+  deepClone,
+  deepContains,
+  deepExtend,
+  endsWith,
+  escapeAttribute,
+  escapeRegExp,
+  humanizeEventName,
+  humanizeKey,
+  humanizeKeystroke,
+  isSubset,
+  losslessInvert,
+  mapObject,
+  multiplyString,
+  pluralize,
+  remove,
+  setValueForKeyPath,
+  hasKeyPath,
+  spliceWithArray,
+  sum,
+  uncamelcase,
+  undasherize,
+  underscore,
+  valueForKeyPath,
+  isEqual,
+  isEqualForProperties
+};
 
 // TODO: Consider shorter variations of null checks:
 // https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md#ds207-consider-shorter-variations-of-null-checks
